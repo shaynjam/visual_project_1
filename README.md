@@ -22,7 +22,7 @@ diff = cv2.absdiff(curr_small, prev_small)                 # how much each pixel
 _, diff = cv2.threshold(diff, 25, 255, cv2.THRESH_TOZERO)  # ignore tiny changes (noise)
 diff = cv2.convertScaleAbs(diff, alpha=1.5)                # boost contrast of motion
 
-idx = ((diff / 255) * (len(chars) - 1)).astype(int)        # value -> ramp index
+final_pixel = ((diff / 255) * (len(chars) - 1)).astype(int)        # value -> ramp index
 output = "\n".join("".join(row) for row in chars[idx])
 print("\033[H" + output, end="", flush=True)               # cursor to top-left, redraw in place
 ```
