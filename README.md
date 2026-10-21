@@ -4,12 +4,6 @@ Your webcam, redrawn as ASCII characters in the terminal, where **only the parts
 
 Built with Python, OpenCV and NumPy. This was a personal growth project: my first time working with video frames, and my first time profiling why something was slow and fixing it.
 
-## Demo
-
-| Colour version (per-pixel loops) | Monochrome version (NumPy) |
-|---|---|
-| ![colour demo](assets/colour_demo.gif) | ![mono demo](assets/mono_demo.gif) |
-
 ## How it works
 
 For every webcam frame:
