@@ -23,7 +23,7 @@ _, diff = cv2.threshold(diff, 25, 255, cv2.THRESH_TOZERO)  # ignore tiny changes
 diff = cv2.convertScaleAbs(diff, alpha=1.5)                # boost contrast of motion
 
 final_pixel = ((diff / 255) * (len(chars) - 1)).astype(int)        # value -> ramp index
-output = "\n".join("".join(row) for row in chars[idx])
+output = "\n".join("".join(row) for row in chars[final_pixel])
 print("\033[H" + output, end="", flush=True)               # cursor to top-left, redraw in place
 ```
 
@@ -44,8 +44,8 @@ I started with colour because it looked more "natural". But the colour version u
 To smooth things further I learnt NumPy. Instead of looping over each pixel in Python, I let NumPy turn the **whole** frame into characters in one step:
 
 ```python
-idx = ((diff / 255) * (len(chars) - 1)).astype(int)
-chars[idx]
+final_pixel = ((diff / 255) * (len(chars) - 1)).astype(int)
+chars[final_pixel]
 ```
 
 One line replaces the nested loop. In hindsight the real bottleneck was the Python loop, not the colour itself, which means colour could probably come back cheaply with a vectorised approach (see "What's next").
@@ -69,17 +69,8 @@ python motion_tracker.py
 - The output is 200 x 80 characters. Maximise your terminal and zoom out (`Ctrl` + `-` in VS Code) until it fits, or it will wrap and look garbled.
 - Use a dark terminal theme. On a light theme the brightness mapping looks inverted.
 
-## Results
-
-| Version | Approx. FPS |
-|---|---|
-| Colour, per-pixel Python loops | _fill in_ |
-| Monochrome, per-pixel Python loops | _fill in_ |
-| Monochrome, NumPy | _fill in_ |
 
 ## What's next
-
-- [ ] Bring colour back using vectorised NumPy (build the colour codes for all pixels at once)
 - [ ] Turn motion *highlighting* into motion *tracking*: find the largest moving blob, draw its centroid and a trail
 - [ ] Gesture recognition with a small scikit-learn classifier trained on my own recordings
 - [ ] Show a live FPS counter
