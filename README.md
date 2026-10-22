@@ -70,7 +70,7 @@ python motion_tracker.py
 - Use a dark terminal theme. On a light theme the brightness mapping looks inverted.
 
 
-##Limitations and Suggestions
+## Limitations and Suggestions
 - Light flickers thus the brightness of each pixel keeps on varying frame by frame. To deal with this a threshold was used to set the minimum absolute change value to be 25, still
   inconsistencies pop up. To improve on this a blur can be used or the avg absolute change should be used so minor changes or natural changes get blocked by the threshold of 25.
 
