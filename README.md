@@ -1,5 +1,5 @@
-# ASCII Motion Highlighter(Ai was used to guide me, all the code is written by me, Ai was only used as a guidance/mentor since this is a learnign project)
-
+# ASCII Motion Highlighter
+`(Ai was used to guide me, all the code is written by me, Ai was only used as a guidance/mentor since this is a learning project)`
 live webcam feed, redrawn as ASCII characters in the terminal, where **only the parts that move light up**
 Built with Python, OpenCV and NumPy. This was a personal growth project: my first time working with video frames, and my first time profiling why something was slow and fixing it.
 
