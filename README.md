@@ -1,5 +1,5 @@
 # ASCII Motion Highlighter
-`(Ai was used to guide me, all the code is written by me, Ai was only used as a guidance/mentor since this is a learning project)`
+`(Ai was used to guide me by giving feedbacks and suggesting improvements, all the code is written by me, Ai was only used as a guidance/mentor since this is a learning project)`
 live webcam feed, redrawn as ASCII characters in the terminal, where **only the parts that move light up**
 Built with Python, OpenCV and NumPy. This was a personal growth project: my first time working with video frames, and my first time profiling why something was slow and fixing it.
 
@@ -67,9 +67,13 @@ python motion_tracker.py
 - Press `q` (with the preview window focused) to quit.
 - The output is 200 x 80 characters. Maximise your terminal and zoom out (`Ctrl` + `-` in VS Code) until it fits, or it will wrap and look garbled.
 - Use a dark terminal theme. On a light theme the brightness mapping looks inverted.
-  
+
+
+##Limitations and Suggestions
+- Light flickers thus the brightness of each pixel keeps on varying frame by frame. To deal with this a threshold was used to set the minimum absolute change value to be 25, still
+  inconsistencies pop up. To improve on this a blur can be used or the avg absolute change should be used so minor changes or natural changes get blocked by the threshold of 25.
 
 ## What's next
-- [ ] Turn motion *highlighting* into motion *tracking*: find the largest moving blob, draw its centroid and a trail
-- [ ] Gesture recognition with a small scikit-learn classifier trained on my own recordings
-- [ ] Show a live FPS counter
+-  Turn motion *highlighting* into motion *tracking*: find the largest moving blob, draw its centroid and a trail
+-  Gesture recognition with a small scikit-learn classifier trained on my own recordings
+-  Show a live FPS counter
