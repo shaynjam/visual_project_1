@@ -1,7 +1,6 @@
-# ASCII Motion Highlighter
+# ASCII Motion Highlighter(Ai was used to guide me, all the code is written by me, Ai was only used as a guidance/mentor since this is a learnign project)
 
-Your webcam, redrawn as ASCII characters in the terminal, where **only the parts that move light up**.
-
+live webcam feed, redrawn as ASCII characters in the terminal, where **only the parts that move light up**
 Built with Python, OpenCV and NumPy. This was a personal growth project: my first time working with video frames, and my first time profiling why something was slow and fixing it.
 
 ## How it works
@@ -68,7 +67,7 @@ python motion_tracker.py
 - Press `q` (with the preview window focused) to quit.
 - The output is 200 x 80 characters. Maximise your terminal and zoom out (`Ctrl` + `-` in VS Code) until it fits, or it will wrap and look garbled.
 - Use a dark terminal theme. On a light theme the brightness mapping looks inverted.
-
+  
 
 ## What's next
 - [ ] Turn motion *highlighting* into motion *tracking*: find the largest moving blob, draw its centroid and a trail
