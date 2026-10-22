@@ -1,5 +1,5 @@
 # ASCII Motion Highlighter
-`(Ai was used to guide me by giving feedbacks and suggesting improvements, all the code is written by me, Ai was only used as a guidance/mentor since this is a learning project)`
+`(Written by me as a learning project. I used Claude as a tutor for explanations, debugging hints and a few specific snippets (like the ANSI escape codes), and typed and structured the code myself.)`
 
 Live webcam feed, redrawn as ASCII characters in the terminal, where **only the parts that move light up**
 Built with Python, OpenCV and NumPy. This was a personal growth project: my first time working with video frames, and my first time profiling why something was slow and fixing it.
@@ -31,7 +31,7 @@ print("\033[H" + output, end="", flush=True)               # cursor to top-left,
 
 ### 1. Turning pixels into characters
 
-The first hurdle was deciding which character goes where. I used a **"light to dense" ASCII ramp**, a string of characters ordered by how much of the cell they fill. A `.` covers only a few percent of the cell, while `@` covers far more. In a dark terminal, a denser character looks brighter, so brightness can be mapped to density.
+The first hurdle was deciding which character goes where. I used a **"light to dense" ASCII ramp**, a string of characters ordered by how much of the cell they fill. A `.` covers only a few percent of the cell, while `@` covers far more. In a dark terminal, a denser character looks brighter, so brightness can be mapped to density. Also one of the major issues was making the code "redraw" the output over the previous output to give a "motion" feel to it, to solve this Claude suggested me an ANSI escape code
 
 To do that I needed each pixel's brightness. `cap.read()` returns a frame, which is a 3D array holding every pixel's colour values (in OpenCV the order is **B, G, R**). Converting it to **grayscale** collapses this into a 2D array with a single value per pixel, from 0 (black) to 255 (white). That value is then scaled to an index into the ramp: the brightest (most changed) pixels get the densest characters.
 
